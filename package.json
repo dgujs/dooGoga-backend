@@ -8,14 +8,20 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "dotenv": "^8.2.0",
+    "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.3",
-    "path": "^0.12.7"
+    "merge-graphql-schemas": "^1.7.0",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7",
+    "ts-node": "^8.4.1",
+    "type-graphql": "^0.17.5",
+    "typescript": "^3.6.4"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node server.ts",
-    "start": "babel-node server.ts"
+    "dev": "nodemon --exec ts-node server.ts",
+    "start": "ts-node server.ts"
   },
   "repository": {
     "type": "git",
