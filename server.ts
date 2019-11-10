@@ -1,13 +1,31 @@
 
-import { GraphQLServer } from "graphql-yoga";
+
+import { ApolloServer, gql } from "apollo-server-koa";
+import Koa from "koa";
 
 import typeDefs from "./graphql/typeDefs/mergeSchemas";
 import resolvers from "./graphql/resolvers/mergeResolvers";
-import { ApolloServer, gql } from "apollo-server-koa";
 
-const server = new GraphQLServer({
+import dbConnect from "./db/index";
+
+const app = new Koa();
+const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    introspection: true,
+    playground: true,
 });
 
-server.start(() => console.log("dooGoga server Running!"));
+server.applyMiddleware({ app });
+const port = 4000;
+
+app.listen(port, async() => {
+    console.log("dooGoga server Running!")
+    await dbConnect();
+});
+
+// createConnection(connectionOptions).then(async connection => {
+//     console.log("db");
+// }).catch(error => console.log(error));
+
+

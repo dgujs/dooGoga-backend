@@ -4,11 +4,8 @@
   "description": "Back_end API",
   "main": "server.ts",
   "dependencies": {
-<<<<<<< HEAD
     "@types/express": "^4.17.1",
     "apollo-server-koa": "^2.9.7",
-=======
->>>>>>> 0f99c85c55fc8d04d43ef80836b8dd84e9a51371
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
