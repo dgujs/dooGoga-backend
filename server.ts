@@ -1,6 +1,6 @@
 
-
-import { ApolloServer, gql } from "apollo-server-koa";
+import "dotenv/config";
+import { ApolloServer } from "apollo-server-koa";
 import Koa from "koa";
 
 import typeDefs from "./graphql/typeDefs/mergeSchemas";
@@ -17,8 +17,8 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app });
-const port = 4000;
 
+const port = process.env.PORT || 4000;
 app.listen(port, async() => {
     console.log("dooGoga server Running!")
     await dbConnect();
