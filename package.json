@@ -4,13 +4,11 @@
   "description": "Back_end API",
   "main": "server.ts",
   "dependencies": {
-    "@types/express": "^4.17.1",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "dotenv": "^8.2.0",
     "graphql-tools": "^4.0.5",
-    "graphql-yoga": "^1.18.3",
     "merge-graphql-schemas": "^1.7.0",
     "nodemon": "^1.19.4",
     "path": "^0.12.7",
