@@ -7,7 +7,9 @@ const connectionOptions: ConnectionOptions = {
     database: process.env.DB_NAME || "",
     synchronize: true,
     logging: true,
-    entities: ["entities/*.ts"],
+    entities: [
+        __dirname + "/entities/*.ts"
+    ],
     host: process.env.DB_ENDPOINT || "localhost",
     port: Number(process.env.DB_PORT),
     username: process.env.DB_USERNAME || "",
