@@ -1,6 +1,6 @@
 node_modules/
 <<<<<<< HEAD
-db/.env
+.env
 =======
-db/.env
+.env
 >>>>>>> b7df66b72e00896713fca4365be017417d95ae5e
