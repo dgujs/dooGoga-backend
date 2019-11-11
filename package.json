@@ -25,7 +25,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec ts-node server.ts",
-    "start": "ts-node server.ts"
+    "start": "ts-node server.ts",
+    "migration": "ts-node $(npm bin)/typeorm migration:generate -n",
+    "migration:up": "ts-node $(npm bin)/typeorm migration:run",
+    "migration:down": "ts-node $(npm bin)/typeorm migration:revert",
+    "watch-server": "nodemon —watch src -e ts,tsx —exec ts-node server.ts"
   },
   "repository": {
     "type": "git",

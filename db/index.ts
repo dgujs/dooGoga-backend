@@ -2,24 +2,21 @@
 import { createConnection } from "typeorm";
 import connectionOptions from "./ormConfig";
 import { User } from "./entities/User";
+import { Spot } from "./entities/Spot"
+import { AuthMail } from "./entities/AuthMail"
 
 const dbConnect = () => {
     createConnection(connectionOptions).then(async connection => {
 
-        // console.log("Inserting a new user into the database...");
-        // const user = new User();
-        // user.firstName = "Timber";
-        // user.lastName = "Saw";
-        // user.age = 25;
-        // await connection.manager.save(user);
-        // console.log("Saved a new user with id: " + user.id);
+        // const test_user = new User();
+        // const test_spot = new Spot();
+        // const test_auth = new AuthMail();
 
-        // console.log("Loading users from the database...");
-        // const users = await connection.manager.find(User);
-        // console.log("Loaded users: ", users);
+        // await connection.manager.save(test_user);
 
-        // console.log("Here you can setup and run express/koa/any other framework.");
+        // await connection.manager.save(test_spot);
 
+        // await connection.manager.save(test_auth);
     }).catch(error => console.log(error));
 }
 

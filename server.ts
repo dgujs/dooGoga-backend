@@ -1,5 +1,6 @@
 
 import "dotenv/config";
+
 import { ApolloServer } from "apollo-server-koa";
 import Koa from "koa";
 
@@ -19,9 +20,9 @@ const server = new ApolloServer({
 server.applyMiddleware({ app });
 
 const port = process.env.PORT || 4000;
-app.listen(port, async() => {
+app.listen(port, () => {
     console.log("dooGoga server Running!")
-    await dbConnect();
+    dbConnect();
 });
 
 // createConnection(connectionOptions).then(async connection => {
