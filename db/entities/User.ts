@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, OneToMany } from "typeorm";
-import { AuthMail } from "./AuthMail";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Spot } from "./Spot";
+import { Trade } from "./Trade";
 
 @Entity()
 export class User {
@@ -27,20 +27,14 @@ export class User {
     phoneNumber: string;
 
     @Column({ type: "double precision", default: 0 })
-    satisFaction: number;
-
-    // @Column("simple-array")
-    // dealing: number[];
-
-    @Column({ type: "int", default: 0})
-    dealCount: number;
+    grade: number;
 
     @Column({ type: "int", default: 0})
     money: number;
 
-    @OneToOne(type => AuthMail, authmail => authmail.user)
-    auth: AuthMail;
+    @OneToMany(type => Trade, trade => trade.GoodsKeeper)
+    trades: Trade[];
 
-    @OneToMany(type => Spot, spot => spot.GoodsKeeper)
-    dealingSpot: Spot[];
+    @OneToMany(type => Spot, spot => spot.Registrant)
+    RegisteredSpot: Spot[];
 }

@@ -1,15 +1,15 @@
 
 import "dotenv/config";
 
-import { ApolloServer } from "apollo-server-koa";
-import Koa from "koa";
-
+import { ApolloServer } from "apollo-server-express";
+import express from "express";
+import { createServer } from "http";
 import typeDefs from "./graphql/typeDefs/mergeSchemas";
 import resolvers from "./graphql/resolvers/mergeResolvers";
 
 import dbConnect from "./db/index";
 
-const app = new Koa();
+const app = express();
 const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -17,16 +17,15 @@ const server = new ApolloServer({
     playground: true,
 });
 
-server.applyMiddleware({ app });
+const port: number = parseInt(process.env.PORT) || 4000;
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-    console.log("dooGoga server Running!")
-    dbConnect();
-});
+server.applyMiddleware({ app, path: '/graphql' });
+const httpServer = createServer(app);
 
-// createConnection(connectionOptions).then(async connection => {
-//     console.log("db");
-// }).catch(error => console.log(error));
+httpServer.listen({ port: port },
+    (): void => {
+        console.log(`\n🚀\n dooGoga Server Running!`);
+        dbConnect();
+    });
 
 
